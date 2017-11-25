@@ -24,14 +24,23 @@ struct Line {
     int x0, y0, x1, y1;
 };
 
-bool isLie(const Line& line, int px, int py) {
+
+bool check_lying(const Line& line, int x_cordinate, int y_cordinate)
+{
     int64_t lx = line.x1 - line.x0;
     int64_t ly = line.y1 - line.y0;
-    if(lx == 0) return line.x0 == px;
-    if(ly == 0) return line.y0 == py;
-    int64_t dx = (px - line.x0) * ly;
-    int64_t dy = (py - line.y0) * lx;
-    return dx == dy;
+    int64_t x = (x_cordinate - line.x0) * ly;
+    int64_t y = (y_cordinate - line.y0) * lx;
+
+    if(lx == 0)
+    {
+      return line.x0 == x_cordinate;
+    }
+    if(ly == 0)
+    {
+      return line.y0 == y_cordinate;
+    }
+    return x == y;
 }
 
 int Solution::maxPoints(vector<int> &A, vector<int> &B)
@@ -49,7 +58,7 @@ int Solution::maxPoints(vector<int> &A, vector<int> &B)
 
             for(int k = 0; k < length; ++k)
             {
-                if(isLie(line, A[k], B[k]))
+                if(check_lying(line, A[k], B[k]))
                 {
                     ++count;
                 }
