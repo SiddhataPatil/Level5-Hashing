@@ -71,6 +71,6 @@ result = obj.maxPoints(A, B) ;
 cout<<"Given input:"<<endl;
 cout<<"A = {1,1} "<<endl;
 cout<<"B = {2,2} "<<endl;
-cout<<"Maximum number of points lieing on the same straight line = "<<result<<endl;
+cout<<"Maximum number of points lying on the same straight line = "<<result<<endl;
 return 0;
 }
